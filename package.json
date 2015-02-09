@@ -1,0 +1,22 @@
+{
+  "name": "drone_map",
+  "version": "1.0.0",
+  "description": "Browser based utility for building sets of commands for the Parrot Rolling Spider MiniDrone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/contact411/DroneMap.git"
+  },
+  "author": "Joel Hampton (@contact411)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/contact411/DroneMap/issues"
+  },
+  "homepage": "https://github.com/contact411/DroneMap",
+  "dependencies": {
+    "express": "^4.11.2"
+  }
+}
