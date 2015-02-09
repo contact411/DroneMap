@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/contact411/DroneMap",
   "dependencies": {
-    "express": "^4.11.2"
+    "express": "^4.11.2",
+    "rolling-spider": "^0.1.0"
   }
 }
