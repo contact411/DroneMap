@@ -1,0 +1,43 @@
+/* Basscss Colors */
+
+.dark-gray    { color: var(--dark-gray) }
+.white        { color: white }
+.blue         { color: var(--blue) }
+.mid-gray     { color: var(--mid-gray) }
+.light-gray   { color: var(--light-gray) }
+.lighter-gray { color: var(--lighter-gray) }
+.red          { color: var(--red) }
+.green        { color: var(--green) }
+.yellow       { color: var(--yellow) }
+
+.bg-dark-gray    { background-color: var(--dark-gray) }
+.bg-white        { background-color: white }
+.bg-blue         { background-color: var(--blue) }
+.bg-mid-gray     { background-color: var(--mid-gray) }
+.bg-light-gray   { background-color: var(--light-gray) }
+.bg-lighter-gray { background-color: var(--lighter-gray) }
+.bg-red          { background-color: var(--red) }
+.bg-green        { background-color: var(--green) }
+.bg-yellow       { background-color: var(--yellow) }
+
+.bg-darken-1   { background-color: var(--darken-1) }
+.bg-darken-2   { background-color: var(--darken-2) }
+.bg-darken-3   { background-color: var(--darken-3) }
+.bg-darken-4   { background-color: var(--darken-4) }
+
+
+:root {
+  --blue: #0076df;
+  --red: #f95020;
+  --green: #00cf26;
+  --yellow: #efcc00;
+  --dark-gray: #333;
+  --mid-gray: #777;
+  --light-gray: #ccc;
+  --lighter-gray: #eee;
+  --darken-1: rgba(#000,.0625);
+  --darken-2: rgba(#000,.125);
+  --darken-3: rgba(#000,.25);
+  --darken-4: rgba(#000,.5);
+}
+
