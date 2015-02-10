@@ -2,7 +2,7 @@
   "name": "drone_map",
   "version": "1.0.0",
   "description": "Browser based utility for building sets of commands for the Parrot Rolling Spider MiniDrone",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

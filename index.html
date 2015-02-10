@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drone Map</title>
+</head>
+<body>
+  <h1>Drone Map</h1>
+
+  <div class="buttons">
+    <div class="connect">
+      <button class="button-light-gray mb1">Connect</button>
+    </div>
+    
+      <div class="takeoff">
+      <button class="button-red mb1">Take-off</button>
+    </div>
+
+    <div class="land">
+      <button class="button-red mb1">Land</button>
+    </div>
+    
+    <div class="up">
+      <button class="button-blue mb1">Up</button>
+    </div>
+    
+    <div class="down">
+      <button class="button-blue mb1">Down</button>
+    </div>
+    
+    <div class="flipfront">
+      <button class="button-blue mb1">Front Flip</button>
+    </div>
+
+    <div class="flipback">
+      <button class="button-blue mb1">Back Flip</button>
+    </div>
+    
+    <div class="flipright">
+      <button class="button-blue mb1">Right Flip</button>
+    </div>
+    
+    <div class="flipleft">
+      <button class="button-blue mb1">Left Flip</button>
+    </div>
+
+    <div class="land">
+      <button class="button-red mb1">Land</button>
+    </div>
+  </div>
+  
+
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    var socket = io();
+
+  socket.on('ping', function(msg){
+    console.log(msg);
+  });
+  </script>
+</body>
+</html>
