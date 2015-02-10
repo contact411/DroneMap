@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Drone Map</title>
+  <link href="//d2v52k3cl9vedd.cloudfront.net/basscss/4.2.4/basscss.min.css" rel="stylesheet">
 </head>
 <body>
   <h1>Drone Map</h1>
 
   <div class="buttons">
-    <div class="connect">
-      <button class="button-light-gray mb1">Connect</button>
+    <div class="power-on">
+      <button class="button-light-gray mb1">Power On</button>
     </div>
     
       <div class="takeoff">
       <button class="button-red mb1">Take-off</button>
-    </div>
-
-    <div class="land">
-      <button class="button-red mb1">Land</button>
     </div>
     
     <div class="up">
@@ -53,11 +50,65 @@
   <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script>
-    var socket = io();
+    $(document).ready(function() {
+      var socket = io();
 
-  socket.on('ping', function(msg){
-    console.log(msg);
-  });
+      $('.power-on button').click(function(){
+        console.log("Power on clicked")
+        socket.emit('power on');
+        return false;
+      });
+
+      $('.takeoff button').click(function(){
+        console.log("takeoff clicked")
+        socket.emit('takeoff');
+        return false;
+      });
+
+      $('.land button').click(function(){
+        console.log("land clicked")
+        socket.emit('land');
+        return false;
+      });
+
+      $('.flipfront button').click(function(){
+        console.log("Flip Front clicked")
+        socket.emit('flipfront');
+        return false;
+      });
+
+      $('.up button').click(function(){
+        console.log("Up clicked")
+        socket.emit('up');
+        return false;
+      });
+
+      $('.down button').click(function(){
+        console.log("Down clicked")
+        socket.emit('down');
+        return false;
+      });
+
+      $('.flipback button').click(function(){
+        console.log("Back Flip clicked")
+        socket.emit('flipback');
+        return false;
+      });
+
+      $('.flipright button').click(function(){
+        console.log("Right Flip clicked")
+        socket.emit('flipright');
+        return false;
+      });
+
+      $('.flipleft button').click(function(){
+        console.log("Left Flip clicked")
+        socket.emit('flipleft');
+        return false;
+      });
+
+    });
+
   </script>
 </body>
 </html>
