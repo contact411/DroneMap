@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drone Map</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link href="//d2v52k3cl9vedd.cloudfront.net/basscss/4.2.4/basscss.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Flight Mapper</h1>
+
+  <div class="buttons">    
+    <div class="up">
+      <button class="button-blue mb1">Up</button>
+    </div>
+    
+    <div class="down">
+      <button class="button-blue mb1">Down</button>
+    </div>
+
+    <div class="forward">
+      <button class="button-blue mb1">Forward</button>
+    </div>
+
+    <div class="backward">
+      <button class="button-blue mb1">Backward</button>
+    </div>
+
+    <div class="slideLeft">
+      <button class="button-blue mb1">Left Slide</button>
+    </div>
+
+    <div class="slideRight">
+      <button class="button-blue mb1">Right Slide</button>
+    </div>
+
+    <div class="rotateLeft">
+      <button class="button-blue mb1">Left Rotate</button>
+    </div>
+
+    <div class="rotateRight">
+      <button class="button-blue mb1">Right Rotate</button>
+    </div>
+    
+    <div class="flipfront">
+      <button class="button-blue mb1">Front Flip</button>
+    </div>
+
+    <div class="flipback">
+      <button class="button-blue mb1">Back Flip</button>
+    </div>
+    
+    <div class="flipright">
+      <button class="button-blue mb1">Right Flip</button>
+    </div>
+    
+    <div class="flipleft">
+      <button class="button-blue mb1">Left Flip</button>
+    </div>
+
+  </div>
+
+  <div class="steps">
+    
+  </div>
+  
+
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    $(document).ready(function() {
+      var socket = io();
+
+      $('.flipfront button').click(function(){
+        console.log("FrontStep added")
+        socket.emit('frontStep');
+        return false;
+      });
+
+      $('.up button').click(function(){
+        console.log("UpStep added")
+        socket.emit('upStep');
+        return false;
+      });
+
+      $('.down button').click(function(){
+        console.log("DownStep added")
+        socket.emit('downStep');
+        return false;
+      });
+
+      $('.flipback button').click(function(){
+        console.log("BackStep added")
+        socket.emit('backStep');
+        return false;
+      });
+
+      $('.flipright button').click(function(){
+        console.log("RightFlipStep added")
+        socket.emit('rightFlipStep');
+        return false;
+      });
+
+      $('.flipleft button').click(function(){
+        console.log("LeftFlipStep added")
+        socket.emit('leftFlipStep');
+        return false;
+      });
+
+      $('.forward button').click(function(){
+        console.log("Forward Step added")
+        socket.emit('forwardStep');
+        return false;
+      });
+
+      $('.backward button').click(function(){
+        console.log("Backward Step added")
+        socket.emit('backwardStep');
+        return false;
+      });
+
+      $('.slideLeft button').click(function(){
+        console.log("slideLeftStep added")
+        socket.emit('slideLeftStep');
+        return false;
+      });
+
+      $('.slideRight button').click(function(){
+        console.log("slideRightStep added")
+        socket.emit('slideRightStep');
+        return false;
+      });
+
+      $('.rotateLeft button').click(function(){
+        console.log("rotateLeftStep added")
+        socket.emit('rotateLeftStep');
+        return false;
+      });
+
+      $('.rotateRight button').click(function(){
+        console.log("rotateRightStep added")
+        socket.emit('rotateRightStep');
+        return false;
+      });
+
+
+      socket.on('steps', function(steps){
+
+        if ( steps.length === 1 ) {
+          $(".steps").html("<p>" + "1. " + steps[0].action + "</p>")
+        } else {
+          $(".steps").append("<p>" + steps.length + ". " + steps[steps.length - 1].action + "</p>")
+        }
+
+        console.log('steps called');
+      });
+
+    });
+
+  </script>
+</body>
+</html>

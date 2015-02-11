@@ -6,11 +6,11 @@
   <link href="//d2v52k3cl9vedd.cloudfront.net/basscss/4.2.4/basscss.min.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Drone Map</h1>
+  <h1>Manual Flight</h1>
 
   <div class="buttons">
     <div class="power-on">
-      <button class="button-light-gray mb1">Power On</button>
+      <button class="button-light-gray mb1">Drone Connect</button>
     </div>
     
       <div class="takeoff">
@@ -42,8 +42,37 @@
     </div>
 
     <div class="land">
-      <button class="button-red mb1">Land</button>
+      <button class="button-blue mb1">Land</button>
     </div>
+
+    <div class="emergency">
+      <button class="button-red mb1">Emergency</button>
+    </div>
+
+    <div class="forward">
+      <button class="button-blue mb1">Forward</button>
+    </div>
+
+    <div class="backward">
+      <button class="button-blue mb1">Backward</button>
+    </div>
+
+    <div class="slideLeft">
+      <button class="button-blue mb1">Left Slide</button>
+    </div>
+
+    <div class="slideRight">
+      <button class="button-blue mb1">Right Slide</button>
+    </div>
+
+    <div class="rotateLeft">
+      <button class="button-blue mb1">Left Rotate</button>
+    </div>
+
+    <div class="rotateRight">
+      <button class="button-blue mb1">Right Rotate</button>
+    </div>
+
   </div>
   
 
@@ -104,6 +133,49 @@
       $('.flipleft button').click(function(){
         console.log("Left Flip clicked")
         socket.emit('flipleft');
+        return false;
+      });
+// -------------------------------- New ---------
+
+      $('.emergency button').click(function(){
+        console.log("Emergency clicked")
+        socket.emit('emergency');
+        return false;
+      });
+
+      $('.forward button').click(function(){
+        console.log("Forward clicked")
+        socket.emit('forward');
+        return false;
+      });
+
+      $('.backward button').click(function(){
+        console.log("Backward clicked")
+        socket.emit('backward');
+        return false;
+      });
+
+      $('.slideLeft button').click(function(){
+        console.log("Slide Left clicked")
+        socket.emit('slideLeft');
+        return false;
+      });
+
+      $('.slideRight button').click(function(){
+        console.log("Slide Right clicked")
+        socket.emit('slideRight');
+        return false;
+      });
+
+      $('.rotateLeft button').click(function(){
+        console.log("Rotate Left clicked")
+        socket.emit('rotateLeft');
+        return false;
+      });
+
+      $('.rotateRight button').click(function(){
+        console.log("Rotate Right clicked")
+        socket.emit('rotateRight');
         return false;
       });
 

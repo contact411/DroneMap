@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+#container {
+  max-width: 60em;
+  margin: 1.25em auto;
+}
+
+main {
+  padding: 1.25em;
+  width: 66%;
+  float: left;
+  border-right: 1px solid #ccc;
+}
+
+aside {
+  padding: 1.25em;
+  width: 34%;
+  float: right;
+}
+
+#steps {
+  float: right;
+}
