@@ -1,5 +1,13 @@
-* {
+/** {
   box-sizing: border-box;
+}*/
+
+html { 
+  background: url("/wood 2.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #container {
@@ -7,26 +15,45 @@
   margin: 1.25em auto;
 }
 
-main {
+body {
+  background-color: none;
+}
+
+.clear {
+  clear: both;
+}
+
+/*main {
   padding: 1.25em;
   width: 66%;
   float: left;
   border-right: 1px solid #ccc;
-}
+}*/
 
-aside {
+/*aside {
   padding: 1.25em;
   width: 34%;
   float: right;
-}
+}*/
 
 h1 {
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.stepsList {
+  text-align: center
+}
+
 .steps {
   display: inline-block;
   float: left;
+  border-color: black;
+  border-style: solid;
+  border: 3em;
 }
 
 div.buttons div, div.buttons, div.steps {
@@ -36,3 +63,4 @@ div.buttons div, div.buttons, div.steps {
   padding: .5em;
   margin-left: 2em;
 }  
+

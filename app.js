@@ -8,6 +8,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var RollingSpider = require("rolling-spider"); 
 var yourDrone = new RollingSpider("a8f8b8868cc447bd907e7164079268e5");
+
 // Jack's drone
 // var yourDrone = new RollingSpider("8143c477a8e94dab957032d54c15bda7");
 
@@ -57,7 +58,7 @@ io.on('connection', function(socket){
     yourDrone.land();
   });
 
-  socket.on('flipfront', function() {
+  socket.on('flipFront', function() {
     console.log('Front Flip');
     yourDrone.frontFlip();
   });
@@ -72,17 +73,17 @@ io.on('connection', function(socket){
     yourDrone.down({speed: 50, steps: 50});
   });
 
-  socket.on('flipback', function() {
-    console.log('flipback');
+  socket.on('flipBack', function() {
+    console.log('Back Flip');
     yourDrone.backFlip();
   });
 
-  socket.on('flipright', function() {
+  socket.on('flipRight', function() {
     console.log('Right Flip');
     yourDrone.rightFlip();
   });
 
-  socket.on('flipleft', function() {
+  socket.on('flipLeft', function() {
     console.log('Left Flip');
     yourDrone.leftFlip();
   });
@@ -127,9 +128,15 @@ io.on('connection', function(socket){
     io.emit('steps', steps);
   }
 
-  socket.on('frontStep', function() {
-    console.log('frontStep added');
+  socket.on('frontFlipStep', function() {
+    console.log('frontFlipStep added');
     steps.push({action: "frontFlip", name: "Front Flip",  delay: 2000});
+    respondToStep();
+  });
+
+  socket.on('backFlipStep', function() {
+    console.log('backStep added');
+    steps.push({action: "backFlip", name: "Back Flip",  delay: 2000});
     respondToStep();
   });
 
@@ -151,13 +158,13 @@ io.on('connection', function(socket){
     respondToStep();
   });
 
-  socket.on('rightFlipStep', function() {
-    console.log('rightFlipStep added');
+  socket.on('flipRightStep', function() {
+    console.log('flipRightStep added');
     steps.push({action: "rightFlip", name: "Right Flip",  delay: 2000});
     respondToStep();
   });
 
-  socket.on('leftFlipStep', function() {
+  socket.on('flipLeftStep', function() {
     console.log('leftFlipStep added');
     steps.push({action: "leftFlip", name: "Left Flip",  delay: 2000})
     respondToStep();
@@ -206,7 +213,8 @@ io.on('connection', function(socket){
     setTimeout(function() {
       steps.reverse();
       run(steps.pop(), steps, socket);
-    }, 3000);    
+    }, 3000);
+    //steps = [];    
   });
 
 

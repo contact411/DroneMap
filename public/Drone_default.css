@@ -1,0 +1,189 @@
+@charset "utf-8";
+	.backward
+{
+	background-image : url(image.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 295px;
+	top : 341px;
+	width : 204px;
+	height : 52px;
+}
+.runSteps
+{
+	background-image : url(image10.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 378px;
+	top : 524px;
+	width : 268px;
+	height : 83px;
+}
+.flipFront
+{
+	background-image : url(image4.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 66px;
+	top : 422px;
+	width : 204px;
+	height : 51px;
+}
+.rotateLeft
+{
+	background-image : url(image7.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 525px;
+	top : 261px;
+	width : 204px;
+	height : 52px;
+}
+.title
+{
+	background-image : url(image13.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 92px;
+	top : 42px;
+	width : 902px;
+	height : 108px;
+}
+.forward
+{
+	background-image : url(image1.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 66px;
+	top : 341px;
+	width : 204px;
+	height : 52px;
+}
+.st0
+{
+	background : #2F3744;
+	background : rgba(47, 55, 68, 1);
+	position : absolute ;
+	left : 0px;
+	top : 0px;
+	width : 1024px;
+	height : 195px;
+}
+.st1
+{
+	background : #29E6FF;
+	background : rgba(41, 230, 255, 1);
+	position : absolute ;
+	left : 0px;
+	top : 620px;
+	width : 1024px;
+	height : 332px;
+}
+.slideRight
+{
+	background-image : url(image11.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 754px;
+	top : 341px;
+	width : 204px;
+	height : 52px;
+}
+.rotateRight
+{
+	background-image : url(image6.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 754px;
+	top : 261px;
+	width : 204px;
+	height : 52px;
+}
+.flipRight
+{
+	background-image : url(image3.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 754px;
+	top : 422px;
+	width : 204px;
+	height : 51px;
+}
+.up
+{
+	background-image : url(image9.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 66px;
+	top : 261px;
+	width : 204px;
+	height : 52px;
+}
+.down
+{
+	background-image : url(image8.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 295px;
+	top : 261px;
+	width : 204px;
+	height : 52px;
+}
+.flipBack
+{
+	background-image : url(image5.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 295px;
+	top : 422px;
+	width : 204px;
+	height : 51px;
+}
+.slideLeft
+{
+	background-image : url(image12.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 525px;
+	top : 341px;
+	width : 204px;
+	height : 52px;
+}
+.flipLeft
+{
+	background-image : url(image2.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 525px;
+	top : 422px;
+	width : 204px;
+	height : 51px;
+}
+.NormalCharacterStyle
+{
+	font-family : Myriad Pro;
+	font-size : 18px;
+	color : #2F3744;
+	color : rgb(47, 55, 68);
+}
+.NormalCharacterStyle1
+{
+	font-family : Raleway;
+	font-size : 24px;
+	color : #2F3744;
+	color : rgb(47, 55, 68);
+}
+ul {
+  list-style-type: none;
+}
+
+.steps {
+  display: inline-block;
+  float: right;
+  margin-right: 40px;
+  margin-top: 100px;
+  border-color: black;
+  border-style: solid;
+  border: 3em;
+
+}
