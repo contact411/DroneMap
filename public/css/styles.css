@@ -20,11 +20,19 @@ aside {
   float: right;
 }
 
+h1 {
+  text-align: center;
+}
+
 .steps {
-  float: right;
   display: inline-block;
+  float: left;
 }
 
 div.buttons div, div.buttons, div.steps {
   display: inline-block;
-}
+  text-align: justify;
+  float: left;
+  padding: .5em;
+  margin-left: 2em;
+}  

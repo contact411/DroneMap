@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drone Map</title>
+  <link href="//d2v52k3cl9vedd.cloudfront.net/basscss/4.2.4/basscss.min.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Manual Flight</h1>
+
+  <div class="buttons">
+    <div class="power-on">
+      <button class="button-light-gray mb1">Drone Connect</button>
+    </div>
+    
+      <div class="takeoff">
+      <button class="button-red mb1">Take-off</button>
+    </div>
+    
+    <div class="up">
+      <button class="button-blue mb1">Up</button>
+    </div>
+    
+    <div class="down">
+      <button class="button-blue mb1">Down</button>
+    </div>
+    
+    <div class="flipfront">
+      <button class="button-blue mb1">Front Flip</button>
+    </div>
+
+    <div class="flipback">
+      <button class="button-blue mb1">Back Flip</button>
+    </div>
+    
+    <div class="flipright">
+      <button class="button-blue mb1">Right Flip</button>
+    </div>
+    
+    <div class="flipleft">
+      <button class="button-blue mb1">Left Flip</button>
+    </div>
+
+    <div class="land">
+      <button class="button-blue mb1">Land</button>
+    </div>
+
+    <div class="emergency">
+      <button class="button-red mb1">Emergency</button>
+    </div>
+
+    <div class="forward">
+      <button class="button-blue mb1">Forward</button>
+    </div>
+
+    <div class="backward">
+      <button class="button-blue mb1">Backward</button>
+    </div>
+
+    <div class="slideLeft">
+      <button class="button-blue mb1">Left Slide</button>
+    </div>
+
+    <div class="slideRight">
+      <button class="button-blue mb1">Right Slide</button>
+    </div>
+
+    <div class="rotateLeft">
+      <button class="button-blue mb1">Left Rotate</button>
+    </div>
+
+    <div class="rotateRight">
+      <button class="button-blue mb1">Right Rotate</button>
+    </div>
+
+  </div>
+  
+
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    $(document).ready(function() {
+      var socket = io();
+
+      $('.power-on button').click(function(){
+        console.log("Power on clicked")
+        socket.emit('power on');
+        return false;
+      });
+
+      $('.takeoff button').click(function(){
+        console.log("takeoff clicked")
+        socket.emit('takeoff');
+        return false;
+      });
+
+      $('.land button').click(function(){
+        console.log("land clicked")
+        socket.emit('land');
+        return false;
+      });
+
+      $('.flipfront button').click(function(){
+        console.log("Flip Front clicked")
+        socket.emit('flipfront');
+        return false;
+      });
+
+      $('.up button').click(function(){
+        console.log("Up clicked")
+        socket.emit('up');
+        return false;
+      });
+
+      $('.down button').click(function(){
+        console.log("Down clicked")
+        socket.emit('down');
+        return false;
+      });
+
+      $('.flipback button').click(function(){
+        console.log("Back Flip clicked")
+        socket.emit('flipback');
+        return false;
+      });
+
+      $('.flipright button').click(function(){
+        console.log("Right Flip clicked")
+        socket.emit('flipright');
+        return false;
+      });
+
+      $('.flipleft button').click(function(){
+        console.log("Left Flip clicked")
+        socket.emit('flipleft');
+        return false;
+      });
+// -------------------------------- New ---------
+
+      $('.emergency button').click(function(){
+        console.log("Emergency clicked")
+        socket.emit('emergency');
+        return false;
+      });
+
+      $('.forward button').click(function(){
+        console.log("Forward clicked")
+        socket.emit('forward');
+        return false;
+      });
+
+      $('.backward button').click(function(){
+        console.log("Backward clicked")
+        socket.emit('backward');
+        return false;
+      });
+
+      $('.slideLeft button').click(function(){
+        console.log("Slide Left clicked")
+        socket.emit('slideLeft');
+        return false;
+      });
+
+      $('.slideRight button').click(function(){
+        console.log("Slide Right clicked")
+        socket.emit('slideRight');
+        return false;
+      });
+
+      $('.rotateLeft button').click(function(){
+        console.log("Rotate Left clicked")
+        socket.emit('rotateLeft');
+        return false;
+      });
+
+      $('.rotateRight button').click(function(){
+        console.log("Rotate Right clicked")
+        socket.emit('rotateRight');
+        return false;
+      });
+
+    });
+
+  </script>
+</body>
+</html>

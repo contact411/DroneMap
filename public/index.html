@@ -3,78 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <title>Drone Map</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link href="//d2v52k3cl9vedd.cloudfront.net/basscss/4.2.4/basscss.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-  <h1>Manual Flight</h1>
-
-  <div class="buttons">
-    <div class="power-on">
-      <button class="button-light-gray mb1">Drone Connect</button>
-    </div>
+  <div class="center p1 bg-darken-3">
+    <h1>Drone Map</h1>
     
-      <div class="takeoff">
-      <button class="button-red mb1">Take-off</button>
-    </div>
-    
-    <div class="up">
-      <button class="button-blue mb1">Up</button>
-    </div>
-    
-    <div class="down">
-      <button class="button-blue mb1">Down</button>
-    </div>
-    
-    <div class="flipfront">
-      <button class="button-blue mb1">Front Flip</button>
-    </div>
+    <div class="clearfix mb2 outline-blue">
+      <div class="buttons">
+        <div class="stickPad">
+          <div class="up">
+            <button class="button-blue mb1">Up</button>
+          </div>
+          
+          <div class="down">
+            <button class="button-blue mb1">Down</button>
+          </div>
 
-    <div class="flipback">
-      <button class="button-blue mb1">Back Flip</button>
-    </div>
-    
-    <div class="flipright">
-      <button class="button-blue mb1">Right Flip</button>
-    </div>
-    
-    <div class="flipleft">
-      <button class="button-blue mb1">Left Flip</button>
-    </div>
+          <div class="rotateLeft">
+            <button class="button-blue mb1">Left Rotate</button>
+          </div>
 
-    <div class="land">
-      <button class="button-blue mb1">Land</button>
-    </div>
+          <div class="rotateRight">
+            <button class="button-blue mb1">Right Rotate</button>
+          </div>
+        </div>
 
-    <div class="emergency">
-      <button class="button-red mb1">Emergency</button>
-    </div>
+        <div class="dPad">   
+          <div class="forward">
+            <button class="button-blue mb1">Forward</button>
+          </div>
 
-    <div class="forward">
-      <button class="button-blue mb1">Forward</button>
-    </div>
+          <div class="backward">
+            <button class="button-blue mb1">Backward</button>
+          </div>
 
-    <div class="backward">
-      <button class="button-blue mb1">Backward</button>
-    </div>
+          <div class="slideLeft">
+            <button class="button-blue mb1">Left Slide</button>
+          </div>
 
-    <div class="slideLeft">
-      <button class="button-blue mb1">Left Slide</button>
-    </div>
+          <div class="slideRight">
+            <button class="button-blue mb1">Right Slide</button>
+          </div>      
+        </div>
 
-    <div class="slideRight">
-      <button class="button-blue mb1">Right Slide</button>
-    </div>
+        <div class="tricks">
+          <div class="flipfront">
+            <button class="button-blue mb1">Front Flip</button>
+          </div>
 
-    <div class="rotateLeft">
-      <button class="button-blue mb1">Left Rotate</button>
-    </div>
+          <div class="flipback">
+            <button class="button-blue mb1">Back Flip</button>
+          </div>
+          
+          <div class="flipright">
+            <button class="button-blue mb1">Right Flip</button>
+          </div>
+          
+          <div class="flipleft">
+            <button class="button-blue mb1">Left Flip</button>
+          </div>
+        </div>
+      </div>
 
-    <div class="rotateRight">
-      <button class="button-blue mb1">Right Rotate</button>
-    </div>
+      <br><br><div class="runSteps">
+        <button class="button-red mb1">Run Steps!</button>
+      </div>
 
+    <div class="steps"></div>
   </div>
-  
 
   <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
@@ -82,101 +81,93 @@
     $(document).ready(function() {
       var socket = io();
 
-      $('.power-on button').click(function(){
-        console.log("Power on clicked")
-        socket.emit('power on');
-        return false;
-      });
-
-      $('.takeoff button').click(function(){
-        console.log("takeoff clicked")
-        socket.emit('takeoff');
-        return false;
-      });
-
-      $('.land button').click(function(){
-        console.log("land clicked")
-        socket.emit('land');
-        return false;
-      });
-
       $('.flipfront button').click(function(){
-        console.log("Flip Front clicked")
-        socket.emit('flipfront');
+        console.log("FrontStep added")
+        socket.emit('frontStep');
         return false;
       });
 
       $('.up button').click(function(){
-        console.log("Up clicked")
-        socket.emit('up');
+        console.log("UpStep added")
+        socket.emit('upStep');
         return false;
       });
 
       $('.down button').click(function(){
-        console.log("Down clicked")
-        socket.emit('down');
+        console.log("DownStep added")
+        socket.emit('downStep');
         return false;
       });
 
       $('.flipback button').click(function(){
-        console.log("Back Flip clicked")
-        socket.emit('flipback');
+        console.log("BackStep added")
+        socket.emit('backStep');
         return false;
       });
 
       $('.flipright button').click(function(){
-        console.log("Right Flip clicked")
-        socket.emit('flipright');
+        console.log("RightFlipStep added")
+        socket.emit('rightFlipStep');
         return false;
       });
 
       $('.flipleft button').click(function(){
-        console.log("Left Flip clicked")
-        socket.emit('flipleft');
-        return false;
-      });
-// -------------------------------- New ---------
-
-      $('.emergency button').click(function(){
-        console.log("Emergency clicked")
-        socket.emit('emergency');
+        console.log("LeftFlipStep added")
+        socket.emit('leftFlipStep');
         return false;
       });
 
       $('.forward button').click(function(){
-        console.log("Forward clicked")
-        socket.emit('forward');
+        console.log("Forward Step added")
+        socket.emit('forwardStep');
         return false;
       });
 
       $('.backward button').click(function(){
-        console.log("Backward clicked")
-        socket.emit('backward');
+        console.log("Backward Step added")
+        socket.emit('backwardStep');
         return false;
       });
 
       $('.slideLeft button').click(function(){
-        console.log("Slide Left clicked")
-        socket.emit('slideLeft');
+        console.log("slideLeftStep added")
+        socket.emit('slideLeftStep');
         return false;
       });
 
       $('.slideRight button').click(function(){
-        console.log("Slide Right clicked")
-        socket.emit('slideRight');
+        console.log("slideRightStep added")
+        socket.emit('slideRightStep');
         return false;
       });
 
       $('.rotateLeft button').click(function(){
-        console.log("Rotate Left clicked")
-        socket.emit('rotateLeft');
+        console.log("rotateLeftStep added")
+        socket.emit('rotateLeftStep');
         return false;
       });
 
       $('.rotateRight button').click(function(){
-        console.log("Rotate Right clicked")
-        socket.emit('rotateRight');
+        console.log("rotateRightStep added")
+        socket.emit('rotateRightStep');
         return false;
+      });
+
+      $('.runSteps button').click(function(){
+        console.log("Running steps")
+        socket.emit('runSteps');
+        return false;
+      });
+
+      socket.on('steps', function(steps){
+
+        if ( steps.length === 1 ) {
+          $(".steps").html("<p>" + "1. " + steps[0].name + "</p>")
+        } else {
+          $(".steps").append("<p>" + steps.length + ". " + steps[steps.length - 1].name + "</p>")
+        }
+
+        console.log('steps called');
       });
 
     });
