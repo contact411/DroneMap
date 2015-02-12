@@ -20,6 +20,11 @@ aside {
   float: right;
 }
 
-#steps {
+.steps {
   float: right;
+  display: inline-block;
+}
+
+div.buttons div, div.buttons, div.steps {
+  display: inline-block;
 }

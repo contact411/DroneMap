@@ -3,7 +3,17 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var RollingSpider = require("rolling-spider"); 
-var yourDrone = new RollingSpider("8143c477a8e94dab957032d54c15bda7");
+var yourDrone = new RollingSpider("a8f8b8868cc447bd907e7164079268e5");
+// Jack's drone
+// var yourDrone = new RollingSpider("8143c477a8e94dab957032d54c15bda7");
+
+yourDrone.connect(function() {
+  yourDrone.setup(function() {
+    yourDrone.startPing();
+
+
+  });
+});
 
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/public/index.html');
@@ -49,12 +59,12 @@ io.on('connection', function(socket){
 
   socket.on('up', function() {
     console.log('up');
-    yourDrone.up();
+    yourDrone.up({speed: 50, steps: 50});
   });
 
   socket.on('down', function() {
     console.log('down');
-    yourDrone.down();
+    yourDrone.down({speed: 50, steps: 50});
   });
 
   socket.on('flipback', function() {
@@ -79,32 +89,32 @@ io.on('connection', function(socket){
 
   socket.on('forward', function() {
     console.log('forward');
-    yourDrone.forward();
+    yourDrone.forward({speed: 50, steps: 50});
   });
 
   socket.on('backward', function() {
     console.log('backward');
-    yourDrone.backward();
+    yourDrone.backward({speed: 50, steps: 50});
   });
 
   socket.on('slideLeft', function() {
     console.log('slideLeft');
-    yourDrone.tiltLeft();
+    yourDrone.tiltLeft({speed: 50, steps: 50});
   });
 
   socket.on('slideRight', function() {
     console.log('slideRight');
-    yourDrone.tiltRight();
+    yourDrone.tiltRight({speed: 50, steps: 50});
   });
 
   socket.on('rotateLeft', function() {
     console.log('rotateLeft');
-    yourDrone.turnLeft();
+    yourDrone.turnLeft({speed: 50, steps: 50});
   });
 
   socket.on('rotateRight', function() {
     console.log('rotateRight');
-    yourDrone.turnRight();
+    yourDrone.turnRight({speed: 50, steps: 50});
   });
 
   var respondToStep = function () {
@@ -114,7 +124,7 @@ io.on('connection', function(socket){
 
   socket.on('frontStep', function() {
     console.log('frontStep added');
-    steps.push({action: "frontflip", delay: 2000});
+    steps.push({action: "frontFlip", delay: 2000});
     respondToStep();
   });
 
@@ -132,7 +142,7 @@ io.on('connection', function(socket){
 
   socket.on('backStep', function() {
     console.log('backStep added');
-    steps.push({action: "backflip", delay: 2000});
+    steps.push({action: "backFlip", delay: 2000});
     respondToStep();
   });
 
@@ -147,7 +157,6 @@ io.on('connection', function(socket){
     steps.push({action: "leftFlip", delay: 2000})
     respondToStep();
   });
-// ------ New - --  Test -- ---
 
   socket.on('forwardStep', function() {
     console.log('forwardStep added');
@@ -185,6 +194,17 @@ io.on('connection', function(socket){
     respondToStep();
   });
 
+  socket.on('runSteps', function() {
+    console.log('Running steps');
+    yourDrone.flatTrim();
+    yourDrone.takeOff();
+    setTimeout(function() {
+      steps.reverse();
+      run(steps.pop(), steps, socket);
+    }, 3000);    
+  });
+
+
 });
 
 
@@ -193,20 +213,17 @@ http.listen(3000, function() {
 });
 
 // Code for running array of steps
-// function sendToDrone(action) { console.log(action); }
-// function run(step, remainingSteps) {
-//   if (step) {
-//     sendToDrone(step.action);
-//     setTimeout(function(step, remainingSteps) {
-//       run(step, remainingSteps);
-//     }, step.delay, remainingSteps.pop(), remainingSteps);
-//   } else {
-//     sendToDrone("land");
-//   }
-// }
+function run(step, remainingSteps, socket) {
+  if (step) {
+    yourDrone[step.action]();
+    setTimeout(function(step, remainingSteps, socket) {
+      run(step, remainingSteps, socket);
+    }, step.delay, remainingSteps.pop(), remainingSteps, socket);
+  } else {
+    yourDrone['land']();
+  }
+}
 
-// Code for pushing instruction into an array
-// steps.push({action: "backflip", delay: 2000})
 
 // Code to kickoff array of steps
 // run(steps.pop(), steps);

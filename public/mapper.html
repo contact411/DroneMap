@@ -3,68 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <title>Drone Map</title>
-  <link rel="stylesheet" href="css/reset.css">
   <link href="//d2v52k3cl9vedd.cloudfront.net/basscss/4.2.4/basscss.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <style type="text/css">
+    h1 {
+      text-align: center;
+    }
+
+    .steps {
+      display: inline-block;
+      float: left;
+    }
+
+    div.buttons div, div.buttons, div.steps {
+      display: inline-block;
+      float: left;
+      padding: .5em;
+    }  
+  </style>
 </head>
 <body>
-  <h1>Flight Mapper</h1>
-
-  <div class="buttons">    
-    <div class="up">
-      <button class="button-blue mb1">Up</button>
-    </div>
+  <div class="center p1 bg-darken-3">
+    <h1>Drone Map</h1>
     
-    <div class="down">
-      <button class="button-blue mb1">Down</button>
-    </div>
+    <div class="buttons">
+      <div class="stickPad">
+        <div class="up">
+          <button class="button-blue mb1">Up</button>
+        </div>
+        
+        <div class="down">
+          <button class="button-blue mb1">Down</button>
+        </div>
 
-    <div class="forward">
-      <button class="button-blue mb1">Forward</button>
-    </div>
+        <div class="rotateLeft">
+          <button class="button-blue mb1">Left Rotate</button>
+        </div>
 
-    <div class="backward">
-      <button class="button-blue mb1">Backward</button>
-    </div>
+        <div class="rotateRight">
+          <button class="button-blue mb1">Right Rotate</button>
+        </div>
+      </div>
 
-    <div class="slideLeft">
-      <button class="button-blue mb1">Left Slide</button>
-    </div>
+      <div class="dPad">   
+        <div class="forward">
+          <button class="button-blue mb1">Forward</button>
+        </div>
 
-    <div class="slideRight">
-      <button class="button-blue mb1">Right Slide</button>
-    </div>
+        <div class="backward">
+          <button class="button-blue mb1">Backward</button>
+        </div>
 
-    <div class="rotateLeft">
-      <button class="button-blue mb1">Left Rotate</button>
-    </div>
+        <div class="slideLeft">
+          <button class="button-blue mb1">Left Slide</button>
+        </div>
 
-    <div class="rotateRight">
-      <button class="button-blue mb1">Right Rotate</button>
-    </div>
-    
-    <div class="flipfront">
-      <button class="button-blue mb1">Front Flip</button>
-    </div>
+        <div class="slideRight">
+          <button class="button-blue mb1">Right Slide</button>
+        </div>      
+      </div>
 
-    <div class="flipback">
-      <button class="button-blue mb1">Back Flip</button>
-    </div>
-    
-    <div class="flipright">
-      <button class="button-blue mb1">Right Flip</button>
-    </div>
-    
-    <div class="flipleft">
-      <button class="button-blue mb1">Left Flip</button>
-    </div>
+      <div class="tricks">
+        <div class="flipfront">
+          <button class="button-blue mb1">Front Flip</button>
+        </div>
 
+        <div class="flipback">
+          <button class="button-blue mb1">Back Flip</button>
+        </div>
+        
+        <div class="flipright">
+          <button class="button-blue mb1">Right Flip</button>
+        </div>
+        
+        <div class="flipleft">
+          <button class="button-blue mb1">Left Flip</button>
+        </div>
+      </div>
+
+      <br><br><div class="runSteps">
+        <button class="button-red mb1">Run Steps!</button>
+      </div>
+
+    <div class="steps"></div>
   </div>
-
-  <div class="steps">
-    
-  </div>
-  
 
   <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
@@ -144,6 +165,11 @@
         return false;
       });
 
+      $('.runSteps button').click(function(){
+        console.log("Running steps")
+        socket.emit('runSteps');
+        return false;
+      });
 
       socket.on('steps', function(steps){
 
