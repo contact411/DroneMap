@@ -1,7 +1,7 @@
 @charset "utf-8";
-	.backward
+.backward
 {
-	background-image : url(image.png);
+	background-image : url('assets/image.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 295px;
@@ -9,9 +9,13 @@
 	width : 204px;
 	height : 52px;
 }
+
+.backward:hover {
+   background-image: url('assets/hover/image.png');
+}
 .runSteps
 {
-	background-image : url(image10.png);
+	background-image : url('assets/image10.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 378px;
@@ -19,9 +23,14 @@
 	width : 268px;
 	height : 83px;
 }
+
+.runSteps:hover {
+   background-image: url('assets/hover/image10.png');
+}
+
 .flipFront
 {
-	background-image : url(image4.png);
+	background-image : url('assets/image4.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 66px;
@@ -29,9 +38,12 @@
 	width : 204px;
 	height : 51px;
 }
+.flipFront:hover {
+   background-image: url('assets/hover/image4.png');
+}
 .rotateLeft
 {
-	background-image : url(image7.png);
+	background-image : url('assets/image7.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 525px;
@@ -39,9 +51,12 @@
 	width : 204px;
 	height : 52px;
 }
+.rotateLeft:hover {
+   background-image: url('assets/hover/image7.png');
+}
 .title
 {
-	background-image : url(image13.png);
+	background-image : url('assets/image13.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 92px;
@@ -49,15 +64,21 @@
 	width : 902px;
 	height : 108px;
 }
+.title:hover {
+   background-image: url('assets/hover/image13.png');
+}
 .forward
 {
-	background-image : url(image1.png);
+	background-image : url('assets/image1.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 66px;
 	top : 341px;
 	width : 204px;
 	height : 52px;
+}
+.forward:hover {
+   background-image: url('assets/hover/image1.png');
 }
 .st0
 {
@@ -78,10 +99,11 @@
 	top : 620px;
 	width : 1024px;
 	height : 332px;
+	color: black;
 }
 .slideRight
 {
-	background-image : url(image11.png);
+	background-image : url('assets/image11.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 754px;
@@ -89,9 +111,12 @@
 	width : 204px;
 	height : 52px;
 }
+.slideRight:hover {
+   background-image: url('assets/hover/image11.png');
+}
 .rotateRight
 {
-	background-image : url(image6.png);
+	background-image : url('assets/image6.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 754px;
@@ -99,9 +124,12 @@
 	width : 204px;
 	height : 52px;
 }
+.rotateRight:hover {
+   background-image: url('assets/hover/image6.png');
+}
 .flipRight
 {
-	background-image : url(image3.png);
+	background-image : url('assets/image3.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 754px;
@@ -109,9 +137,12 @@
 	width : 204px;
 	height : 51px;
 }
+.flipRight:hover {
+   background-image: url('assets/hover/image3.png');
+}
 .up
 {
-	background-image : url(image9.png);
+	background-image : url('assets/image9.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 66px;
@@ -119,9 +150,12 @@
 	width : 204px;
 	height : 52px;
 }
+.up:hover {
+   background-image: url('assets/hover/image9.png');
+}
 .down
 {
-	background-image : url(image8.png);
+	background-image : url('assets/image8.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 295px;
@@ -129,9 +163,12 @@
 	width : 204px;
 	height : 52px;
 }
+.down:hover {
+   background-image: url('assets/hover/image8.png');
+}
 .flipBack
 {
-	background-image : url(image5.png);
+	background-image : url('assets/image5.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 295px;
@@ -139,9 +176,12 @@
 	width : 204px;
 	height : 51px;
 }
+.flipBack:hover {
+   background-image: url('assets/hover/image5.png');
+}
 .slideLeft
 {
-	background-image : url(image12.png);
+	background-image : url('assets/image12.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 525px;
@@ -149,15 +189,21 @@
 	width : 204px;
 	height : 52px;
 }
+.slideLeft:hover {
+   background-image: url('assets/hover/image12.png');
+}
 .flipLeft
 {
-	background-image : url(image2.png);
+	background-image : url('assets/image2.png');
 	background-repeat : no-repeat;
 	position : absolute ;
 	left : 525px;
 	top : 422px;
 	width : 204px;
 	height : 51px;
+}
+.flipLeft:hover {
+   background-image: url('assets/hover/image2.png');
 }
 .NormalCharacterStyle
 {
@@ -173,6 +219,14 @@
 	color : #2F3744;
 	color : rgb(47, 55, 68);
 }
+
+h4 {
+	text: black;
+	float: right;
+	margin-right: 80px;
+	margin-top: 170px;
+}
+
 ul {
   list-style-type: none;
 }
@@ -180,10 +234,9 @@ ul {
 .steps {
   display: inline-block;
   float: right;
-  margin-right: 40px;
-  margin-top: 100px;
+  margin-right: 0px;
+  margin-top: 200px;
   border-color: black;
   border-style: solid;
-  border: 3em;
-
+  border: 2em;
 }
